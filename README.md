@@ -1,1 +1,1 @@
-# Comparisons counter based on quick sort algorithm 
+# Count the number of comparisons used to sort the input by Quick Sort algorithm 
