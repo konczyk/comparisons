@@ -1,26 +1,23 @@
-def first_index(items):
+def first_index(left, *args):
     """
     Return first index as a pivot
     """
-    return lambda left, right: left
+    return left
 
 
-def last_index(items):
+def last_index(left, right, *args):
     """
     Return last index as a pivot
     """
-    return lambda left, right: right
+    return right
 
 
-def median_of_three_index(items):
+def median_of_three_index(left, right, items):
     """
     Return median of three index as a pivot
     """
-    def pivot(left, right):
-        if right - left < 2:
-            return left
-        else:
-            mid = left + (right - left) // 2
-            return sorted([left, right, mid], key=lambda idx: items[idx])[1]
-
-    return pivot
+    if right - left < 2:
+        return left
+    else:
+        mid = left + (right - left) // 2
+        return sorted([left, right, mid], key=lambda idx: items[idx])[1]

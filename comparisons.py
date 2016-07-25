@@ -7,7 +7,7 @@ class Comparisons:
     repeated values
     """
 
-    def __init__(self, items, pivot=lambda x: lambda left, right: left):
+    def __init__(self, items, pivot=lambda left, *args: left):
         """
         Copy the list of items and set comparisons to 0
         """
@@ -28,10 +28,11 @@ class Comparisons:
         """
         Sort the subitems by recursive split using the pivot function
         """
+
         if right <= left:
             return
         else:
-            pivot = self._pivot(self._items)(left, right)
+            pivot = self._pivot(left, right, self._items)
             # always make the pivot the first element
             if pivot > 0:
                 self._swap(left, pivot)
@@ -49,6 +50,7 @@ class Comparisons:
         everything to the left of the pivot is less than the pivot and
         everything to the right of the pivot is greater than the pivot
         """
+
         i, j = left, left + 1
         while j <= right:
             if self._items[j] < self._items[left]:
@@ -64,5 +66,9 @@ class Comparisons:
         return i
 
     def _swap(self, a, b):
+        """
+        Swap values for indices a and b
+        """
+
         self._items[a], self._items[b] = self._items[b], self._items[a]
 

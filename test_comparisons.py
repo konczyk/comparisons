@@ -17,6 +17,12 @@ class ComparisonsTest(unittest.TestCase):
 
         self.assertEqual(comp.count(), 0)
 
+    def test_default_pivot(self):
+        items = [3, 4, 5, 1, 8]
+        comp = Comparisons(items)
+
+        self.assertEqual(comp.count(), 6)
+
     def test_first_index_pivot(self):
         items = [3, 4, 5, 1, 8]
         comp = Comparisons(items, pivots.first_index)
