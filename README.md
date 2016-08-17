@@ -13,7 +13,7 @@ standard input or a file, using the default pivot option:
 
     $ ./client.py numbers.txt
 
-    2092227
+    10297
 
 Count the number of comparisons when sorting a list of all integers between
 1-100000 in random order, using the default pivot option:
